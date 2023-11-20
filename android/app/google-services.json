@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "593878141218",
+    "project_id": "steamhouse-c75d4",
+    "storage_bucket": "steamhouse-c75d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593878141218:android:ea9a2ef8302c12063f3d7b",
+        "android_client_info": {
+          "package_name": "com.Tcs.steamhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593878141218-ig4aspb7ol6hfju62fguk31k60bajcfg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOAev7-EsIP_hpHyamVXjF8f5WNR-1A64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593878141218-ig4aspb7ol6hfju62fguk31k60bajcfg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "593878141218-0dulc21886mhojl54d3mfb0lvt2u6nol.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Tcs.steamhouse"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593878141218:android:c65c6faeafe12c0d3f3d7b",
+        "android_client_info": {
+          "package_name": "com.steamhouse.tcs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593878141218-ig4aspb7ol6hfju62fguk31k60bajcfg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOAev7-EsIP_hpHyamVXjF8f5WNR-1A64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593878141218-ig4aspb7ol6hfju62fguk31k60bajcfg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "593878141218-0dulc21886mhojl54d3mfb0lvt2u6nol.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Tcs.steamhouse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
