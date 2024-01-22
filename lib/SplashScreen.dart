@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:steamhouse/NoInternet.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:steamhouse/Screens/Complain/AddComplain.dart';
 import 'package:steamhouse/config/string.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:steamhouse/Screens/Login/Login.dart';
@@ -23,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Firebase();
+    super.initState();
   }
 
   Firebase() async {
@@ -31,7 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
       print('YAY! Free cute dog pics!');
       PushNotificationService().setupInteractedMessage();
       await GetFirebasetoken().getfirebasetoken();
-      super.initState();
     } else {
       setState(() {
         nointernet = true;
@@ -52,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ? BottomnavigationBar(
                   usertype: 1,
                 )
-              : Login()
+              : AddComplain()
           : NoInternet(),
       splashTransition: SplashTransition.scaleTransition,
       backgroundColor: Colors.white,

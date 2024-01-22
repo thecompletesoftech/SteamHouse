@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 import 'package:steamhouse/config/Import.dart';
 
 class AddComplain extends StatefulWidget {
@@ -13,6 +15,7 @@ class _AddComplainState extends State<AddComplain> {
   final _formKey = GlobalKey<FormState>();
   // List<XFile>? ComplainImage;
   final box = GetStorage();
+  var selectdate;
   @override
   void initState() {
     complainController.phone.text = box.read('phone');
@@ -220,6 +223,49 @@ class _AddComplainState extends State<AddComplain> {
                           SizedBox(
                             height: 20,
                           ),
+                          Textfield().text(
+                              'selectdate'.tr,
+                              TextStyles.withColor(
+                                  TextStyles.mw50016, DarkText)),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: (() async {
+                              await selectDatepicker(context, 0);
+                            }),
+                            child: Container(
+                              padding: EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                    bottom:
+                                        BorderSide(width: 1.0, color: Gray)),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Textfield().text(
+                                      selectdate == null
+                                          ? "selectdate".tr
+                                          : selectdate.toString(),
+                                      TextStyles.withColor(
+                                          TextStyles.mn14,
+                                          selectdate == null
+                                              ? ReviewHint
+                                              : DarkText),
+                                      TextAlign.center),
+                                  Icon(
+                                    Icons.calendar_today,
+                                    color: PrimaryColor,
+                                  )
+                                ],
+                              ).paddingSymmetric(vertical: 3),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                           TextBoxwidget(
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -281,6 +327,56 @@ class _AddComplainState extends State<AddComplain> {
         // ComplainImage = pickedFileList;
         complainController.SendImage = pickedFileList;
       });
+    }
+  }
+
+  selectDatepicker(cntxt, mode) async {
+    // var selectedDate;
+    if (Platform.isAndroid) {
+      final DateTime? pickedDate = await showDatePicker(
+        initialDate: DateTime.now().add(Duration(days: 1)),
+        firstDate: DateTime.now().add(Duration(days: 1)),
+        lastDate: DateTime(2100),
+        context: Get.context!,
+        initialEntryMode: DatePickerEntryMode.calendarOnly,
+      );
+      if (pickedDate != null) {
+        setState(() {
+          selectdate = DateFormat("yyyy-MM-dd").format(pickedDate);
+        });
+      }
+    } else {
+      showCupertinoModalPopup(
+          context: cntxt,
+          builder: (_) => Container(
+                height: 190,
+                color: Color.fromARGB(255, 255, 255, 255),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 180,
+                      child: CupertinoDatePicker(
+                          mode: mode == 0
+                              ? CupertinoDatePickerMode.date
+                              : CupertinoDatePickerMode.time,
+                          initialDateTime: DateTime.now(),
+                          minimumDate: DateTime(
+                              DateTime.now().year, DateTime.now().month),
+                          maximumDate: DateTime(2100),
+                          onDateTimeChanged: (val) {
+                            // print()
+                            setState(() {
+                              selectdate = DateFormat("yyyy-MM-dd").format(val);
+                            });
+                            // selectedDate = val;
+                            // print(val.toString());
+                            // var Date = DateFormat("yyyy-MM-dd")
+                            //     .format(selectedDate.value);
+                          }),
+                    ),
+                  ],
+                ),
+              ));
     }
   }
 }

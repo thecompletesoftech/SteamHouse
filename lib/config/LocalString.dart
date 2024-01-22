@@ -137,6 +137,7 @@ class Localstring extends Translations {
           "changepassword": "Change password",
           "address": "Address",
           "save": "Save",
+          "selectdate": "Select Date",
         },
       };
 }
