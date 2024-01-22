@@ -7,6 +7,7 @@ class ComplainController extends GetxController {
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController complaindesc = TextEditingController();
+  TextEditingController selectdate = TextEditingController();
   SelectedEmp _selectedEmp = Get.put(SelectedEmp());
   List<XFile> SendImage = [];
   var isloading = false.obs;

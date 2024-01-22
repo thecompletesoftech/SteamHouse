@@ -15,7 +15,6 @@ class _AddComplainState extends State<AddComplain> {
   final _formKey = GlobalKey<FormState>();
   // List<XFile>? ComplainImage;
   final box = GetStorage();
-  var selectdate;
   @override
   void initState() {
     complainController.phone.text = box.read('phone');
@@ -230,38 +229,30 @@ class _AddComplainState extends State<AddComplain> {
                           SizedBox(
                             height: 10,
                           ),
-                          GestureDetector(
-                            onTap: (() async {
+                          TextBoxwidget(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please Select Date';
+                              }
+                              return null;
+                            },
+                            controller: complainController.selectdate,
+                            hinttext: 'selectdate'.tr,
+                            hintstyle:
+                                TextStyles.withColor(TextStyles.mn14, Gray),
+                            Bgcolor: White,
+                            style:
+                                TextStyles.withColor(TextStyles.mn14, DarkText),
+                            readtype: true,
+                            ontap: (() async {
                               await selectDatepicker(context, 0);
                             }),
-                            child: Container(
-                              padding: EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                    bottom:
-                                        BorderSide(width: 1.0, color: Gray)),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Textfield().text(
-                                      selectdate == null
-                                          ? "selectdate".tr
-                                          : selectdate.toString(),
-                                      TextStyles.withColor(
-                                          TextStyles.mn14,
-                                          selectdate == null
-                                              ? ReviewHint
-                                              : DarkText),
-                                      TextAlign.center),
-                                  Icon(
-                                    Icons.calendar_today,
-                                    color: PrimaryColor,
-                                  )
-                                ],
-                              ).paddingSymmetric(vertical: 3),
-                            ),
+                            suffixshowicon: true,
+                            suffixicon: Icons.calendar_today,
+                            suffix_icon_color: PrimaryColor,
+                            ontapsufixicon: () async {
+                              await selectDatepicker(context, 0);
+                            },
                           ),
                           SizedBox(
                             height: 20,
@@ -341,9 +332,8 @@ class _AddComplainState extends State<AddComplain> {
         initialEntryMode: DatePickerEntryMode.calendarOnly,
       );
       if (pickedDate != null) {
-        setState(() {
-          selectdate = DateFormat("yyyy-MM-dd").format(pickedDate);
-        });
+        complainController.selectdate.text =
+            DateFormat("yyyy-MM-dd").format(pickedDate);
       }
     } else {
       showCupertinoModalPopup(
@@ -364,14 +354,8 @@ class _AddComplainState extends State<AddComplain> {
                               DateTime.now().year, DateTime.now().month),
                           maximumDate: DateTime(2100),
                           onDateTimeChanged: (val) {
-                            // print()
-                            setState(() {
-                              selectdate = DateFormat("yyyy-MM-dd").format(val);
-                            });
-                            // selectedDate = val;
-                            // print(val.toString());
-                            // var Date = DateFormat("yyyy-MM-dd")
-                            //     .format(selectedDate.value);
+                            complainController.selectdate.text =
+                                DateFormat("yyyy-MM-dd").format(val);
                           }),
                     ),
                   ],
