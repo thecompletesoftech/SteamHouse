@@ -43,6 +43,7 @@ class ComplainController extends GetxController {
       request.fields['manger_id'] = box.read('managerid').toString();
       request.fields['meter_id'] = box.read('meterid').toString();
       request.fields['Service_request'] = name.text;
+      request.fields['date'] = selectdate.text;
       request.fields['phone'] = phone.text.replaceFirst(RegExp(r'^0+'), "");
       request.fields['discription'] = complaindesc.text;
       request.fields['latitude'] = box.read('latitude');
