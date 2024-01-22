@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ? BottomnavigationBar(
                   usertype: 1,
                 )
-              : AddComplain()
+              : Login()
           : NoInternet(),
       splashTransition: SplashTransition.scaleTransition,
       backgroundColor: Colors.white,
