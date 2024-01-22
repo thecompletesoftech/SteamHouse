@@ -1,11 +1,11 @@
+import 'dart:io';
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
-import 'package:get_storage/get_storage.dart';
+import 'Navagate_Next.dart';
+import '../Screens/Login/Login.dart';
 import 'package:http/http.dart' as http;
 import 'package:steamhouse/config/Urls.dart';
-import '../Screens/Login/Login.dart';
-import 'Navagate_Next.dart';
+import 'package:get_storage/get_storage.dart';
 
 class Api {
   get context => null;
@@ -36,7 +36,7 @@ class Api {
         } catch (e) {
           // Get.snackbar('Error'.tr, 'Something Went Wrong Try Again');
           log("catch execute on Api -- Error" + e.toString());
-           return false;
+          return false;
         }
       }
     } on SocketException catch (_) {
