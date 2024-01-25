@@ -15,6 +15,7 @@ class _AddComplainState extends State<AddComplain> {
   final _formKey = GlobalKey<FormState>();
   // List<XFile>? ComplainImage;
   final box = GetStorage();
+  var imagerror = false;
   @override
   void initState() {
     complainController.phone.text = box.read('phone');
@@ -186,6 +187,11 @@ class _AddComplainState extends State<AddComplain> {
                                   ),
                                 ],
                               )),
+                          if (imagerror)
+                            Textfield().text(
+                                'Please Select an Image',
+                                TextStyles.withColor(
+                                    TextStyles.mw50012, Colors.red.shade800)),
                           SizedBox(
                             height: 10,
                           ),
@@ -257,6 +263,41 @@ class _AddComplainState extends State<AddComplain> {
                           SizedBox(
                             height: 20,
                           ),
+                          Textfield().text(
+                              'selecttime'.tr,
+                              TextStyles.withColor(
+                                  TextStyles.mw50016, DarkText)),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextBoxwidget(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please Select Time';
+                              }
+                              return null;
+                            },
+                            controller: complainController.selecttime,
+                            hinttext: 'selecttime'.tr,
+                            hintstyle:
+                                TextStyles.withColor(TextStyles.mn14, Gray),
+                            Bgcolor: White,
+                            style:
+                                TextStyles.withColor(TextStyles.mn14, DarkText),
+                            readtype: true,
+                            ontap: (() async {
+                              await selecttimepicker(context, 0);
+                            }),
+                            suffixshowicon: true,
+                            suffixicon: Icons.access_time_outlined,
+                            suffix_icon_color: PrimaryColor,
+                            ontapsufixicon: () async {
+                              await selecttimepicker(context, 0);
+                            },
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                           TextBoxwidget(
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -293,7 +334,18 @@ class _AddComplainState extends State<AddComplain> {
                                     onTap: () async {
                                       if (complainController.isloading.value ==
                                           false) if (_formKey.currentState!.validate()) {
-                                        complainController.Addcomplain();
+                                        if (complainController
+                                                .SendImage.length >
+                                            0) {
+                                          setState(() {
+                                            imagerror = false;
+                                          });
+                                          complainController.Addcomplain();
+                                        } else {
+                                          setState(() {
+                                            imagerror = true;
+                                          });
+                                        }
                                       }
                                     })).paddingSymmetric(vertical: 10),
                           ),
@@ -321,8 +373,50 @@ class _AddComplainState extends State<AddComplain> {
     }
   }
 
+  selecttimepicker(cntxt, mode) async {
+    if (Platform.isAndroid) {
+      final TimeOfDay? picked_s = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+      );
+
+      if (picked_s != null)
+        setState(() {
+          complainController.selecttime.text = DateFormat("hh:mm a").format(
+              DateFormat("HH:mm").parse(
+                  picked_s.hour.toString() + ":" + picked_s.minute.toString()));
+        });
+    } else {
+      showCupertinoModalPopup(
+          context: cntxt,
+          builder: (_) => Container(
+                height: 190,
+                color: Color.fromARGB(255, 255, 255, 255),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 180,
+                      child: CupertinoDatePicker(
+                          mode: mode == 0
+                              ? CupertinoDatePickerMode.date
+                              : CupertinoDatePickerMode.time,
+                          initialDateTime: DateTime.now(),
+                          minimumDate: DateTime.now(),
+                          maximumDate: DateTime(2100),
+                          onDateTimeChanged: (val) {
+                            setState(() {
+                              complainController.selecttime.text =
+                                  DateFormat("hh:mm a").format(val);
+                            });
+                          }),
+                    ),
+                  ],
+                ),
+              ));
+    }
+  }
+
   selectDatepicker(cntxt, mode) async {
-    // var selectedDate;
     if (Platform.isAndroid) {
       final DateTime? pickedDate = await showDatePicker(
         initialDate: DateTime.now().add(Duration(days: 1)),

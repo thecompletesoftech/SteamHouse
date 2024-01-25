@@ -138,6 +138,7 @@ class Localstring extends Translations {
           "address": "Address",
           "save": "Save",
           "selectdate": "Select Date",
+          "selecttime": "Select Time",
         },
       };
 }

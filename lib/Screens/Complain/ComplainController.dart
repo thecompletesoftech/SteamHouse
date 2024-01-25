@@ -8,6 +8,7 @@ class ComplainController extends GetxController {
   TextEditingController phone = TextEditingController();
   TextEditingController complaindesc = TextEditingController();
   TextEditingController selectdate = TextEditingController();
+  TextEditingController selecttime = TextEditingController();
   SelectedEmp _selectedEmp = Get.put(SelectedEmp());
   List<XFile> SendImage = [];
   var isloading = false.obs;
@@ -44,6 +45,7 @@ class ComplainController extends GetxController {
       request.fields['meter_id'] = box.read('meterid').toString();
       request.fields['Service_request'] = name.text;
       request.fields['date'] = selectdate.text;
+      request.fields['time'] = selecttime.text;
       request.fields['phone'] = phone.text.replaceFirst(RegExp(r'^0+'), "");
       request.fields['discription'] = complaindesc.text;
       request.fields['latitude'] = box.read('latitude');
