@@ -72,9 +72,10 @@ class _ComplainPendingState extends State<ComplainPending> {
                                       ? "Accept"
                                       : "Assigned".tr
                                   : "Accept",
-                          date: complainController.Datetime(complainController
-                              .pending[index]['created_at']
-                              .toString()),
+                          date:((complainController
+                              .pending[index]['date'] == null)||(complainController
+                              .pending[index]['time'] == null) ) ? '' : (complainController.Datetime(complainController
+                              .pending[index]['date'].toString())+ ' '+ complainController.pending[index]['time'].toString()),
                           color: box.read("usertype") == 2
                               ? Lightred
                               : complainController.pending[index]['status'] == 0

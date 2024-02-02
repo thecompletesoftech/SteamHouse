@@ -419,8 +419,8 @@ class _AddComplainState extends State<AddComplain> {
   selectDatepicker(cntxt, mode) async {
     if (Platform.isAndroid) {
       final DateTime? pickedDate = await showDatePicker(
-        initialDate: DateTime.now().add(Duration(days: 1)),
-        firstDate: DateTime.now().add(Duration(days: 1)),
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now(),
         lastDate: DateTime(2100),
         context: Get.context!,
         initialEntryMode: DatePickerEntryMode.calendarOnly,

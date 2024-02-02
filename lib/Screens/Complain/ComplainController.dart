@@ -56,7 +56,7 @@ class ComplainController extends GetxController {
             "pictures[]", file.path.toString(),
             filename: file.path.split('/').last));
       }
-      log("jsonEncode" + jsonEncode(request.fields));
+      print("jsonEncode" + jsonEncode(request.fields));
       // log("FILES" + request.files.toString());
       await request.send().then((response) async {
         var respose = await response.stream.bytesToString();
@@ -66,19 +66,21 @@ class ComplainController extends GetxController {
           phone.clear();
           complaindesc.clear();
           SendImage.clear();
+          selectdate.clear();
+          selecttime.clear();
           Get.snackbar('Successfull'.tr, jsonDecode(respose)['message'],
               backgroundColor: White);
           isloading.value = false;
           Get.toNamed(bottombarRoute);
         } else {
-          Get.snackbar('Error'.tr, 'retry'.tr, backgroundColor: White);
+          Get.snackbar('retry'.tr, jsonDecode(respose)['message'], backgroundColor: White);
           log("Retry" + respose);
           isloading.value = false;
         }
         isloading.value = false;
       });
     } catch (e) {
-      Get.snackbar('Error'.tr, 'retry'.tr, backgroundColor: White);
+      Get.snackbar('retry'.tr, 'Something went wrong', backgroundColor: White);
       isloading.value = false;
       log("catch==>" + e.toString());
     }
@@ -101,12 +103,13 @@ class ComplainController extends GetxController {
         : box.read('usertype') == 1
             ? complainlistbymanagerid
             : complainlistbyemployeeid;
-    log("Send Data" + map.toString());
+    print("Send Data" + map.toString());
     await Api().getApi(apiurl, map, true).then((value) async {
-      log("Response Data" + value.toString());
+      print("Response Data" + value.toString());
       if (value['status'] == true) {
-        // log("dataa" + value['data'].toString());
+        log("dataa" + value['data'].toString());
         complaindata.value = value['data'];
+
         for (var i = 0; i < complaindata.length; i++) {
           pending.value = await FilterData(2, 0, 1);
           inprogress.value = await FilterData(2, 2, 3);
@@ -328,6 +331,6 @@ class ComplainController extends GetxController {
   }
 
   Datetime(date) {
-    return DateFormat('d MMM yyyy h:mm a').format(DateTime.parse(date));
+    return DateFormat('d MMM yyyy').format(DateTime.parse(date));
   }
 }
