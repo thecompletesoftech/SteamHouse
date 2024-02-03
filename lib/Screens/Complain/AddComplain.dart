@@ -72,6 +72,32 @@ class _AddComplainState extends State<AddComplain> {
                             height: 30,
                           ),
                           Textfield().text(
+                              'name'.tr,
+                              TextStyles.withColor(
+                                  TextStyles.mw50016, DarkText)),
+                          TextBoxwidget(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
+                            controller: complainController.username,
+                            hinttext: 'pleasenetername'.tr,
+                            hintstyle:
+                                TextStyles.withColor(TextStyles.mn14, Gray),
+                            Bgcolor: White,
+                            style:
+                                TextStyles.withColor(TextStyles.mn14, DarkText),
+                            iconorimage: true,
+                            maxlength: 50,
+                            readtype: false,
+                            ontap: () {},
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Textfield().text(
                               'ServiceRequesttxt'.tr,
                               TextStyles.withColor(
                                   TextStyles.mw50016, DarkText)),

@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 class ComplainController extends GetxController {
   TextEditingController name = TextEditingController();
+  TextEditingController username = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController complaindesc = TextEditingController();
   TextEditingController selectdate = TextEditingController();
@@ -42,6 +43,7 @@ class ComplainController extends GetxController {
       request.headers.addAll(headers);
       // request.fields['user_id'] = box.read('userid').toString();
       request.fields['manger_id'] = box.read('managerid').toString();
+      request.fields['riser_name'] = username.text;
       request.fields['meter_id'] = box.read('meterid').toString();
       request.fields['Service_request'] = name.text;
       request.fields['date'] = selectdate.text;
@@ -73,7 +75,8 @@ class ComplainController extends GetxController {
           isloading.value = false;
           Get.toNamed(bottombarRoute);
         } else {
-          Get.snackbar('retry'.tr, jsonDecode(respose)['message'], backgroundColor: White);
+          Get.snackbar('retry'.tr, jsonDecode(respose)['message'],
+              backgroundColor: White);
           log("Retry" + respose);
           isloading.value = false;
         }
