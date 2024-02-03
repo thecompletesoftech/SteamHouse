@@ -90,7 +90,7 @@ class _AddComplainState extends State<AddComplain> {
                             style:
                                 TextStyles.withColor(TextStyles.mn14, DarkText),
                             iconorimage: true,
-                            maxlength: 50,
+                            // maxlength: 50,
                             readtype: false,
                             ontap: () {},
                           ),
@@ -359,10 +359,11 @@ class _AddComplainState extends State<AddComplain> {
                                     loading: complainController.isloading.value,
                                     onTap: () async {
                                       if (complainController.isloading.value ==
-                                          false) if (_formKey.currentState!.validate()) {
-                                        if (complainController
-                                                .SendImage.length >
-                                            0) {
+                                          false) {
+                                        if (_formKey.currentState!.validate() &&
+                                            complainController
+                                                    .SendImage.length >
+                                                0) {
                                           setState(() {
                                             imagerror = false;
                                           });
