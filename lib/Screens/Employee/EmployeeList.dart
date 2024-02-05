@@ -66,7 +66,7 @@ class _EmployeeListState extends State<EmployeeList> {
                             title: employeeController.Employeedata[index]
                                     ['name']
                                 .toString(),
-                            address: "Technician",
+                            address: "Engineer",
                             ismobile: true,
                             mobile: "Contact:- " +
                                 employeeController.Employeedata[index]['phone']
