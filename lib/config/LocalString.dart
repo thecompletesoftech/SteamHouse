@@ -30,6 +30,7 @@ class Localstring extends Translations {
           "Profile": "Profile",
           "complaintxt": "Complain",
           "ServiceRequesttxt": "Service Request",
+       
           "push_Notificationxt": "Push Notification",
           "Contactustxt": "Contact Us",
           "addemptxt": "Add Emp",
@@ -45,6 +46,7 @@ class Localstring extends Translations {
           "helplinetxt": "Helpline",
           "companynametxt": "Company Name",
           "EnterCompanyNametxt": "Request Subject Title",
+          "pleasenetername": "Please enter Username",
           "clickpicturetxt": "Add Image",
           "selectphototxt": "Select OR Click Photo",
           "contactpersontxt": "Contact Number",

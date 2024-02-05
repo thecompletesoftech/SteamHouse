@@ -62,10 +62,10 @@ class _ComplainCompletedState extends State<ComplainCompleted> {
                                     complainController.completed[index]['phone']
                                         .toString(),
                                 statusmsg: "Resolved".tr,
-                                date: complainController.Datetime(
-                                    complainController.completed[index]
-                                            ['created_at']
-                                        .toString()),
+                                date: ((complainController
+                              .completed[index]['date'] == null)||(complainController
+                              .completed[index]['time'] == null) ) ? '' : (complainController.Datetime(complainController
+                              .completed[index]['date'].toString())+ ' '+ complainController.completed[index]['time'].toString()),
                                 color: Lightgreen,
                                 ontap: () {
                                   box.read("usertype") == 0

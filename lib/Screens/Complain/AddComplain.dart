@@ -72,6 +72,32 @@ class _AddComplainState extends State<AddComplain> {
                             height: 30,
                           ),
                           Textfield().text(
+                              'name'.tr,
+                              TextStyles.withColor(
+                                  TextStyles.mw50016, DarkText)),
+                          TextBoxwidget(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
+                            controller: complainController.username,
+                            hinttext: 'pleasenetername'.tr,
+                            hintstyle:
+                                TextStyles.withColor(TextStyles.mn14, Gray),
+                            Bgcolor: White,
+                            style:
+                                TextStyles.withColor(TextStyles.mn14, DarkText),
+                            iconorimage: true,
+                            // maxlength: 50,
+                            readtype: false,
+                            ontap: () {},
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Textfield().text(
                               'ServiceRequesttxt'.tr,
                               TextStyles.withColor(
                                   TextStyles.mw50016, DarkText)),
@@ -333,10 +359,11 @@ class _AddComplainState extends State<AddComplain> {
                                     loading: complainController.isloading.value,
                                     onTap: () async {
                                       if (complainController.isloading.value ==
-                                          false) if (_formKey.currentState!.validate()) {
-                                        if (complainController
-                                                .SendImage.length >
-                                            0) {
+                                          false) {
+                                        if (_formKey.currentState!.validate() &&
+                                            complainController
+                                                    .SendImage.length >
+                                                0) {
                                           setState(() {
                                             imagerror = false;
                                           });
@@ -419,8 +446,8 @@ class _AddComplainState extends State<AddComplain> {
   selectDatepicker(cntxt, mode) async {
     if (Platform.isAndroid) {
       final DateTime? pickedDate = await showDatePicker(
-        initialDate: DateTime.now().add(Duration(days: 1)),
-        firstDate: DateTime.now().add(Duration(days: 1)),
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now(),
         lastDate: DateTime(2100),
         context: Get.context!,
         initialEntryMode: DatePickerEntryMode.calendarOnly,

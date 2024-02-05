@@ -65,9 +65,10 @@ class _ComplainInprocessState extends State<ComplainInprocess> {
                                   2
                               ? "serviceinprocess".tr
                               : "Completed".tr,
-                          date: complainController.Datetime(complainController
-                              .inprogress[index]['created_at']
-                              .toString()),
+                          date: ((complainController
+                              .inprogress[index]['date'] == null)||(complainController
+                              .inprogress[index]['time'] == null) ) ? '' : (complainController.Datetime(complainController
+                              .inprogress[index]['date'].toString())+ ' '+ complainController.inprogress[index]['time'].toString()),
                           color: complainController.inprogress[index]
                                       ['status'] ==
                                   2
