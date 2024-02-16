@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:steamhouse/config/Import.dart';
 
 class LiveData extends StatefulWidget {
@@ -43,6 +45,7 @@ class _LiveDataState extends State<LiveData> {
           icon: Icons.location_on,
           imagecolor: Lightgreen,
           ontap: () {
+            log("-------------" + liveController.locationList.toString());
             liveController.Live();
             showDialog(
               context: context,

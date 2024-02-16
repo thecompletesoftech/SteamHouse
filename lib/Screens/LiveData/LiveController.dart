@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
 import '../../Config/Import.dart';
-import 'package:http/http.dart' as http;
 
 class LiveController extends GetxController {
   TextEditingController phone = TextEditingController();
@@ -14,24 +13,18 @@ class LiveController extends GetxController {
   final box = GetStorage();
 
   Live() async {
-    try {
-      isloading.value = true;
-      await Api().getApi(livedata, true).then((value) async {
-        if (value['status'] == true) {
-          companydata.value = json.decode(value['data'][0]['livedata']);
-          uniqifyList(companydata);
-          isloading.value = false;
-        } else {
-          log("Retry" + value['status'].toString());
-          isloading.value = false;
-        }
-      });
-      isloading.value = false;
-    } catch (e) {
-      isloading.value = false;
-      // Get.snackbar('Error'.tr, 'Something Went Wrong Try Again');
-      log("catch execute on Api -- Error" + e.toString());
-    }
+    isloading.value = true;
+    await Api().getApi(livedata, true).then((value) async {
+      if (value['status'] == true) {
+        companydata.value = value['data'];
+        uniqifyList(companydata);
+        isloading.value = false;
+      } else {
+        log("Retry" + value['status'].toString());
+        isloading.value = false;
+      }
+    });
+    isloading.value = false;
   }
 
   uniqifyList(List<dynamic> companydata) {
