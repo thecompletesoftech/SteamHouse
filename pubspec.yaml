@@ -54,7 +54,8 @@ dependencies:
   maps_launcher: 2.2.0
   internet_connection_checker: ^1.0.0+1
   flutter_phone_direct_caller: ^2.1.1
-
+  firebase_core_web:
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
