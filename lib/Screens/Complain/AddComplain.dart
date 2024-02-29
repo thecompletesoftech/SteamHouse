@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:steamhouse/config/Import.dart';
 
 class AddComplain extends StatefulWidget {
@@ -312,13 +312,13 @@ class _AddComplainState extends State<AddComplain> {
                                 TextStyles.withColor(TextStyles.mn14, DarkText),
                             readtype: true,
                             ontap: (() async {
-                              await selecttimepicker(context, 0);
+                              await selecttimepicker(context, 1);
                             }),
                             suffixshowicon: true,
                             suffixicon: Icons.access_time_outlined,
                             suffix_icon_color: PrimaryColor,
                             ontapsufixicon: () async {
-                              await selecttimepicker(context, 0);
+                              await selecttimepicker(context, 1);
                             },
                           ),
                           SizedBox(
