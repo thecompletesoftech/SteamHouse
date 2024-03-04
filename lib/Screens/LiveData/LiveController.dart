@@ -14,7 +14,7 @@ class LiveController extends GetxController {
 
   Live() async {
     isloading.value = true;
-    await Api().getApi(livedata, true).then((value) async {
+    await Api().getApi(managerCompany, true).then((value) async {
       if (value['status'] == true) {
         companydata.value = value['data'];
         uniqifyList(companydata);

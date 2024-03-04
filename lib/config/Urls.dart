@@ -1,6 +1,7 @@
 final String baseurl = "http://143.110.248.207/api/v1/customer/";
 final String imageurl = "http://143.110.248.207/uploads/";
-final String livedata = "managerCompany";
+final String livedata = "livedata";
+final String managerCompany = "managerCompany";
 final String loginapi = "login";
 final String Logout = "logout";
 final String companyRegister = "companyRegister";
