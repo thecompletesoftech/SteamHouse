@@ -89,6 +89,7 @@ class _ProfileState extends State<Profile> {
                 SizedBox(height: box.read('usertype') == 0 ? 20 : 0),
                 if (box.read('usertype') == 0)
                   Profilemenu(CallIcon, 'Contactustxt'.tr, () async {
+                    print('/-----------/ ' + box.read('helpline').toString());
                     callNumber(box.read('helpline').toString());
                   }),
                 SizedBox(height: 20),

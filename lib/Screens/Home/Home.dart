@@ -443,6 +443,18 @@ class _HomeState extends State<Home> {
                               callNumber(box.read('helpline').toString());
                             },
                           ).paddingSymmetric(horizontal: 80, vertical: 20),
+                        InkWell(
+                          onTap: () {
+                            launchUrl(Uri.parse("mailto:customer.care@steamhouse.in"));
+                          },
+                          child: Textfield()
+                              .text(
+                                'customer.care@steamhouse.in',
+                                TextStyles.withColor(
+                                    TextStyles.mn16, Lightgreen),
+                              )
+                              .paddingOnly(bottom: 20),
+                        ),
                       ],
                     ),
                   ),
