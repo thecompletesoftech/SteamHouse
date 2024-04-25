@@ -53,9 +53,10 @@ class LoginController extends GetxController {
     map['password'] = signuppassword.text;
     // log("Send Data" + map.toString());
     await Api().getApi(companyRegister, map, true).then((value) {
-        print("User Detailswwww==>" + value.toString());
+      print("User Detailswwww==>" + value.toString());
       if (value == false) {
-         Get.snackbar('Validation'.tr, 'Something went wrong', backgroundColor: White);
+        Get.snackbar('Validation'.tr, 'Something went wrong',
+            backgroundColor: White);
         isloadingsignup.value = false;
       } else if (value['status'] == true) {
         log("User Details==>" + value['data'].toString());
@@ -103,6 +104,21 @@ class LoginController extends GetxController {
     isloadinglogout.value = true;
     await Api().getApi(Logout, [], true).then((value) async {
       print("here" + value.toString());
+      if (value['status'] == true) {
+        box.erase();
+        FireBase();
+        Get.toNamed(loginRoute);
+        isloadinglogout.value = false;
+      } else {
+        log("Error".tr + value['status'].toString());
+      }
+      isloadinglogout.value = false;
+    });
+  }
+
+  deleteAccount() async {
+    isloadinglogout.value = true;
+    await Api().getApi(DeleteAccount, [], true).then((value) async {
       if (value['status'] == true) {
         box.erase();
         FireBase();

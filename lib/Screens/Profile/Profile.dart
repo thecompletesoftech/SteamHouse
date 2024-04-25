@@ -117,6 +117,67 @@ class _ProfileState extends State<Profile> {
                 SizedBox(height: box.read('usertype') != 2 ? 20 : 0),
                 Profilemenu(
                   LogoutIcon,
+                  'deletetxt'.tr,
+                  () async {
+                    showDialog(
+                      context: context,
+                      builder: (context) => StatefulBuilder(
+                        builder: (context, StateSetter setState) {
+                          return Cancel_req_dialog(
+                            leftbtnname: 'No',
+                            rightbtnname: 'Yes',
+                            showhead: false,
+                            leftbtnnameontap: () {
+                              backScreen(context);
+                            },
+                            rightbtnnameontap: () async {
+                              backScreen(context);
+                              loginController.logout();
+                            },
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(height: 20),
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.6,
+                                    child: Textfield().text(
+                                        "Are you sure want to delete your account",
+                                        TextStyles.withColor(
+                                            TextStyles.mn16, PrimaryColor),
+                                        TextAlign.center),
+                                  ),
+                                  SizedBox(height: 20),
+                                  Container(
+                                    child: SvgPicture.string(
+                                      LogoutIcon,
+                                      height: 50,
+                                    ),
+                                  ),
+                                  Textfield()
+                                      .text(
+                                        'deletetxt'.tr,
+                                        TextStyles.withColor(
+                                            TextStyles.mb26, Green),
+                                      )
+                                      .paddingOnly(top: 20),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
+                SizedBox(height: 20),
+                Profilemenu(
+                  LogoutIcon,
                   'logouttxt'.tr,
                   () async {
                     showDialog(

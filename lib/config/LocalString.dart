@@ -36,6 +36,7 @@ class Localstring extends Translations {
           "addemptxt": "Add Emp",
           "raisecomplaintxt": "Raise Service Request",
           "logouttxt": "Log Out",
+          "deletetxt": "Delete Account",
           "hometxt": "Home",
           "steamhousetxt": "Steam House",
           "pressuretxt": "PRESSURE",

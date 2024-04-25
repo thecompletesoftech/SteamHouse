@@ -4,6 +4,7 @@ final String livedata = "livedata";
 final String managerCompany = "managerCompany";
 final String loginapi = "login";
 final String Logout = "logout";
+final String DeleteAccount = "deleteAccount";
 final String companyRegister = "companyRegister";
 final String raisecomplain = "servicesrequest";
 final String complainlistbyuserid = "ServiceRequestBYUserId";
