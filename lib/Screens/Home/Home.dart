@@ -288,7 +288,10 @@ class _HomeState extends State<Home> {
                                                             ? homeController.homelist[
                                                                             0][
                                                                         'locationname'] ==
-                                                                    'Ankleshwar'
+                                                                    'Ankleshwar' || homeController.homelist[
+                                                                            0][
+                                                                        'locationname'] ==
+                                                                    'Dahej'
                                                                 ? homeController
                                                                         .homelist[
                                                                             0][
@@ -360,7 +363,10 @@ class _HomeState extends State<Home> {
                                                               ? homeController.homelist[0]
                                                                           [
                                                                           'locationname'] ==
-                                                                      'Ankleshwar'
+                                                                      'Ankleshwar' || homeController.homelist[0]
+                                                                          [
+                                                                          'locationname'] ==
+                                                                      'Dahej'
                                                                   ? homeController
                                                                           .homelist[
                                                                               0]
