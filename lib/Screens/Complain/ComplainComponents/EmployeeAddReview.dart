@@ -1,5 +1,6 @@
 import 'dart:io';
-import '../../../Config/Import.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class EmployeeAddReview extends StatefulWidget {
   const EmployeeAddReview({super.key});

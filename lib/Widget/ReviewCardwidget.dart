@@ -1,5 +1,5 @@
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../Config/Import.dart';
+import 'package:steamhouse/config/Import.dart';
 
 class ReviewCardwidget extends StatefulWidget {
   final String destxt;

@@ -2,10 +2,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:steamhouse/config/Color.dart';
+import 'package:steamhouse/config/Import.dart';
 import 'package:steamhouse/config/TextStyle.dart';
 
-import '../Config/Import.dart';
-import 'dart:io' show Platform;
 import 'Textfield.dart';
 
 class Appbartext extends StatefulWidget {

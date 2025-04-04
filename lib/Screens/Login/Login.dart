@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/gestures.dart';
 import 'package:steamhouse/Screens/Login/Signup.dart';
+import 'package:steamhouse/config/Import.dart';
 
-import '../../Config/Import.dart';
 
 class Login extends StatefulWidget {
   Login({

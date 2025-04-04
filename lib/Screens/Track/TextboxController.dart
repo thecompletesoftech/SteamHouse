@@ -1,4 +1,5 @@
-import '../../Config/Import.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class TextboxController extends GetxController {
   List<TextEditingController> textlist = [];

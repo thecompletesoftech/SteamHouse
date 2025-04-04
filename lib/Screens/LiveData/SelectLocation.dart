@@ -1,15 +1,16 @@
-import '../../Config/Import.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class SelectLocation extends StatefulWidget {
   final data;
   final locationlist;
   final Function? ontap;
   SelectLocation({
-    Key? key,
+   
     this.locationlist,
     this.data,
     this.ontap,
-  }) : super(key: key);
+  }) ;
 
   @override
   State<SelectLocation> createState() => _SelectLocationState();

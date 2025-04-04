@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
-import '../../Config/Import.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class LiveController extends GetxController {
   TextEditingController phone = TextEditingController();

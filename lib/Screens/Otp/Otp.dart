@@ -7,10 +7,10 @@ import 'package:steamhouse/Widget/Appbartext.dart';
 import 'package:steamhouse/Widget/Button.dart';
 import 'package:steamhouse/Widget/Textfield.dart';
 import 'package:steamhouse/config/Color.dart';
+import 'package:steamhouse/config/Import.dart';
 import 'package:steamhouse/config/TextStyle.dart';
 import 'package:steamhouse/config/string.dart';
 
-import '../../Config/Import.dart';
 
 class Otp extends StatefulWidget {
   final Function? ontap;

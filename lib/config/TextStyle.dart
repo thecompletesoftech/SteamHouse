@@ -1,6 +1,6 @@
 import 'package:steamhouse/config/Color.dart';
+import 'package:steamhouse/config/Import.dart';
 
-import 'Import.dart';
 
 const button = TextStyle(
     fontSize: 16,

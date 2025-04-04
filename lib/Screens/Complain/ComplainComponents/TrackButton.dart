@@ -1,6 +1,7 @@
 import 'dart:developer';
 
-import '../../../Config/Import.dart';
+import 'package:steamhouse/config/Import.dart';
+
 
 class TrackButton extends StatefulWidget {
   const TrackButton({super.key});

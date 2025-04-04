@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:steamhouse/Screens/BottomNavigation/BottomNavigationbar.dart';
 import 'package:steamhouse/Screens/Login/Login.dart';
 import 'package:steamhouse/config/FireBase/Getfirebasetoken.dart';
-import '../../Config/Import.dart';
+import 'package:steamhouse/config/Import.dart';
 
 class LoginController extends GetxController {
   TextEditingController phone = TextEditingController();

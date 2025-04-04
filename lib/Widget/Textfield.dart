@@ -1,6 +1,7 @@
-import '../Config/Import.dart';
 
 // import '../config/string.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class Textfield {
   Widget text(text, style, [align, overflow, maxline = 6, softwrap = true]) {

@@ -1,8 +1,7 @@
 import 'package:steamhouse/config/Color.dart';
+import 'package:steamhouse/config/Import.dart';
 import 'package:steamhouse/config/string.dart';
 
-import '../Config/Import.dart';
-import './Textfield.dart';
 
 class TextBoxwidget extends StatefulWidget {
   final labeltxt;
@@ -38,7 +37,7 @@ class TextBoxwidget extends StatefulWidget {
   String? Function(String?)? validator;
 
   TextBoxwidget({
-    Key? key,
+    
     this.labeltxt,
     // this.prefixicon,
     this.suffixicon,
@@ -69,7 +68,7 @@ class TextBoxwidget extends StatefulWidget {
     this.maxlength,
     this.descbox = false,
     // this.prefixshowicon
-  }) : super(key: key);
+  }) ;
 
   @override
   State<TextBoxwidget> createState() => _TextBoxwidgetState();

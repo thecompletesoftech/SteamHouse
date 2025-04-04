@@ -1,6 +1,7 @@
 import 'dart:developer';
-import 'package:steamhouse/Screens/BottomNavigation/BottomnavigationBar.dart';
-import '../../Config/Import.dart';
+import 'package:steamhouse/config/Import.dart';
+
+import '../BottomNavigation/BottomnavigationBar.dart';
 
 class ProfileController extends GetxController {
   TextEditingController name = TextEditingController();

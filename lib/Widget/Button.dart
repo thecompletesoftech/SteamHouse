@@ -1,4 +1,5 @@
-import '../Config/Import.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class ElevatedButtons extends StatefulWidget {
   final String name;
@@ -58,13 +59,15 @@ class _ElevatedButtonsState extends State<ElevatedButtons> {
         },
         style: ElevatedButton.styleFrom(
           elevation: 0,
+          backgroundColor: widget.colorbtn,
           shape: new RoundedRectangleBorder(
             side: widget.active
                 ? BorderSide(color: widget.bordercolor)
                 : BorderSide(color: Colors.transparent),
             borderRadius: new BorderRadius.circular(widget.borderRadius),
+          
           ),
-          primary: widget.colorbtn,
+          
           // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
         ),
       ),

@@ -1,4 +1,5 @@
-import '../config/Import.dart';
+
+import 'package:steamhouse/config/Import.dart';
 
 class Header extends StatefulWidget {
   final String title;
