@@ -1,5 +1,4 @@
 import 'package:steamhouse/Screens/Profile/Changepassword.dart';
-import 'package:steamhouse/Screens/Profile/ProfileController.dart';
 import 'package:steamhouse/config/Import.dart';
 
 class EditProfile extends StatefulWidget {

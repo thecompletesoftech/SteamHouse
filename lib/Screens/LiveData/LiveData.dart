@@ -46,20 +46,20 @@ class _LiveDataState extends State<LiveData> {
           imagecolor: Lightgreen,
           ontap: () {
             log("-------------" + liveController.locationList.toString());
-            liveController.Live();
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return StatefulBuilder(
-                  builder: (context, StateSetter setState) {
-                    return SelectLocation(
-                      locationlist: liveController.locationList.unique(),
-                      data: liveController.companydata,
-                    );
-                  },
-                );
-              },
-            );
+            // liveController.Live();
+            // showDialog(
+            //   context: context,
+            //   builder: (BuildContext context) {
+            //     return StatefulBuilder(
+            //       builder: (context, StateSetter setState) {
+            //         return SelectLocation(
+            //           locationlist: liveController.locationList.unique(),
+            //           data: liveController.companydata,
+            //         );
+            //       },
+            //     );
+            //   },
+            // );
           },
         ),
       ),

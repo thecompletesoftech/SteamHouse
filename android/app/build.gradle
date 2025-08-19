@@ -34,7 +34,7 @@ apply plugin: 'com.google.gms.google-services'
     }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -52,11 +52,12 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.Tcs.steamhouse"
+        applicationId "com.Tcs.steamhouseapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion 19
-        targetSdkVersion 33
+        minSdkVersion 21
+        targetSdkVersion 34
+        
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -71,7 +72,7 @@ android {
     }
     buildTypes {
        release {
-           signingConfig signingConfigs.debug
+           signingConfig signingConfigs.release
        }
     }
 }

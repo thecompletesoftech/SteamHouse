@@ -8,8 +8,15 @@ import 'package:steamhouse/config/LocalString.dart';
 
 void main() async {
   await GetStorage.init();
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+    WidgetsFlutterBinding.ensureInitialized();
+  
+  try {
+    await Firebase.initializeApp();
+    print("Firebase Initialized Successfully");
+  } catch (e) {
+    print("Error initializing Firebase: $e");
+  }
+  
   runApp(const MyApp());
 }
 

@@ -1,12 +1,5 @@
-import 'package:flutter_svg/svg.dart';
-import 'package:steamhouse/Widget/Textfield.dart';
-import 'package:steamhouse/config/Color.dart';
 import 'package:steamhouse/config/Import.dart';
-import 'package:steamhouse/config/Svgstring.dart';
-import 'package:steamhouse/config/TextStyle.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DialogDelete extends StatefulWidget {
   DialogDelete({Key? key}) : super(key: key);

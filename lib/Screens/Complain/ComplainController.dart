@@ -24,13 +24,14 @@ class ComplainController extends GetxController {
 
   Addcomplain() async {
     try {
+      
       isloading.value = true;
       var url = Uri.parse(baseurl + raisecomplain);
       var userHeader = {
         "Authorization":
             box.read("token") == null ? "" : "Bearer" + box.read("token"),
       };
-      // print(url);
+      
       // log("certificate length" + SendImage.length.toString());
       var request = new http.MultipartRequest(
         "POST",
@@ -40,6 +41,8 @@ class ComplainController extends GetxController {
         "Content-type": "multipart/form-data",
         "Authorization": "Bearer" + box.read("token")
       };
+print("token data"+  box.read('longitude').toString());
+
       request.headers.addAll(headers);
       // request.fields['user_id'] = box.read('userid').toString();
       request.fields['manger_id'] = box.read('managerid').toString();
@@ -50,8 +53,9 @@ class ComplainController extends GetxController {
       request.fields['time'] = selecttime.text;
       request.fields['phone'] = phone.text.replaceFirst(RegExp(r'^0+'), "");
       request.fields['discription'] = complaindesc.text;
-      request.fields['latitude'] = box.read('latitude');
+      request.fields['latitude'] = box.read('latitude') ;
       request.fields['longitude'] = box.read('longitude');
+      print("request field"+request.fields.toString());
       for (var file in SendImage) {
         // log("hii" + file.path.toString());
         request.files.add(await http.MultipartFile.fromPath(
@@ -62,7 +66,7 @@ class ComplainController extends GetxController {
       // log("FILES" + request.files.toString());
       await request.send().then((response) async {
         var respose = await response.stream.bytesToString();
-        log("add Complaindata" + respose);
+        print("add Complaindata" + respose);
         if (jsonDecode(respose)['status'] == true) {
           name.clear();
           phone.clear();
@@ -83,7 +87,7 @@ class ComplainController extends GetxController {
         isloading.value = false;
       });
     } catch (e) {
-      Get.snackbar('retry'.tr, 'Something went wrong', backgroundColor: White);
+      Get.snackbar('retry'.tr, 'Something went wrong'+e.toString(), backgroundColor: White);
       isloading.value = false;
       log("catch==>" + e.toString());
     }

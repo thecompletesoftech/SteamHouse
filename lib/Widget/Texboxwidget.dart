@@ -1,6 +1,4 @@
-import 'package:steamhouse/config/Color.dart';
 import 'package:steamhouse/config/Import.dart';
-import 'package:steamhouse/config/string.dart';
 
 
 class TextBoxwidget extends StatefulWidget {

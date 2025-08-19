@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:steamhouse/config/Import.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class Home extends StatefulWidget {
   final usertype;
@@ -454,7 +453,7 @@ class _HomeState extends State<Home> {
                           },
                           child: Textfield()
                               .text(
-                                'customer.care@steamhouse.in',
+                                'business.analyst@steamhouse.in',
                                 TextStyles.withColor(
                                     TextStyles.mn16, Lightgreen),
                               )

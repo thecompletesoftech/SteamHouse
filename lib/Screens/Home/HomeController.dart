@@ -13,11 +13,14 @@ class HomeController extends GetxController {
 
   HomeData() async {
     try {
-      isloading.value = false;
+      isloading.value = true;
       await Api().getApi(livedata, true).then((value) async {
         if (value['status'] == true) {
+          print("data live data"+value['data'].toString());
           homedataa.value = json.decode(value['data'][0]['livedata']);
+          
           checklist();
+
           isloading.value = false;
         } else {
           log("Retry" + value['status'].toString());
@@ -38,8 +41,8 @@ class HomeController extends GetxController {
       if (box.read("meterid").toString() ==
           homedataa[i]['MeterID'].toString()) {
         homelist.add(homedataa[i]);
-        box.write('latitude', homedataa[i]['Latitude']);
-        box.write('longitude', homedataa[i]['Longitude']);
+        // box.write('latitude', homedataa[i]['Latitude']);
+        // box.write('longitude', homedataa[i]['Longitude']);
         isloading.value = false;
       }
     }

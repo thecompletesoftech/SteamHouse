@@ -84,6 +84,7 @@ class LoginController extends GetxController {
 
   storeData(value) {
     var userData = value['data'];
+    print(value['data']);
     box.write("isLogin", true);
     box.write("userid", userData['id']);
     box.write("meterid", userData['meter_id']);
@@ -96,8 +97,11 @@ class LoginController extends GetxController {
     box.write("address", userData['c_address']);
     box.write("usertype", userData['role']);
     box.write("token", value['token']);
+    box.write("latitude", userData['latitude'].toString());
+    box.write("longitude", userData['longitude'].toString());
     box.write("helpline", userData['helpline_no']);
     box.write("notify", userData['push_notification']);
+
   }
 
   logout() async {

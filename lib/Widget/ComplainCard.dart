@@ -1,12 +1,4 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:steamhouse/Widget/Textfield.dart';
-import 'package:steamhouse/config/Color.dart';
 import 'package:steamhouse/config/Import.dart';
-import 'package:steamhouse/config/Svgstring.dart';
-import 'package:steamhouse/config/TextStyle.dart';
-import 'package:steamhouse/config/string.dart';
 
 class ComplainCard extends StatefulWidget {
   final img;

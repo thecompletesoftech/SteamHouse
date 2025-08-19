@@ -16,8 +16,9 @@ class LiveController extends GetxController {
   Live() async {
     isloading.value = true;
     await Api().getApi(managerCompany, true).then((value) async {
+      print("value records are"+value['data'][0]['livedata'].toString());
       if (value['status'] == true) {
-        companydata.value = value['data'];
+        companydata.value =jsonDecode( value['data'][0]['livedata']);
         uniqifyList(companydata);
         isloading.value = false;
       } else {
